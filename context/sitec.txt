@@ -1,0 +1,23 @@
+Context Summary for http://localhost:5000/sitec.html
+
+```text
+URL: http://localhost:5000/sitec.html
+
+Context: Transaction Lookup Webpage
+
+Description: This page allows users to look up transaction details by entering a transaction number.
+
+Elements:
+
+*   Heading: "Transaction Lookup" (level 1)
+*   Input Field: "Enter Transaction Number:" (textbox with id "txn\_lookup")
+*   Submit Button: "Submit" (id "txn\_lookup\_submit")
+*   Transaction Details Area: Displays transaction information after submission (div with id "txn\_result"). Initially empty. The information will be displayed in the following format: `Transaction Number: ${txnNumber}<br>Amount: $100<br>Bank Id: WF123456<br>Date: 2025-01-01<br>Status: Completed`
+*   Error message: "Please enter a valid transaction number." is displayed in the transaction details area if the transaction number is empty.
+
+Functionality:
+
+1.  User enters a transaction number in the "Enter Transaction Number:" field.
+2.  User clicks the "Submit" button.
+3.  The "Transaction Details Area" is updated with the transaction details. If a blank value is submitted, an error message will be displayed.
+```

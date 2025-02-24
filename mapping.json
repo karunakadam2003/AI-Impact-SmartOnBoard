@@ -1,0 +1,15 @@
+{
+    "sitea": {
+      "status": {
+        "edit": { "tool": "click_button", "parameters": { "xpath": "//*[@id='status_edit']" } },
+        "fill": { "tool": "fill_field", "parameters": { "xpath": "//*[@id='status_field']", "value": "<new_value>" } },
+        "save": { "tool": "click_button", "parameters": { "xpath": "//*[@id='status_save']" } }
+      },
+      "email": {
+        "edit": { "tool": "click_button", "parameters": { "xpath": "//*[@id='email_edit']" } },
+        "fill": { "tool": "fill_field", "parameters": { "xpath": "//*[@id='email_field']", "value": "<new_value>" } },
+        "save": { "tool": "click_button", "parameters": { "xpath": "//*[@id='email_save']" } }
+      }
+    }
+  }
+  
