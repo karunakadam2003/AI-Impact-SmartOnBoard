@@ -14,4 +14,5 @@
     npm start
     ```
 5. Access the Application
+   
 The app runs locally at: http://localhost:3000
