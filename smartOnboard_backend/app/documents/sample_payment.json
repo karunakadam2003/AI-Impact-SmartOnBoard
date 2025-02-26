@@ -1,0 +1,101 @@
+{
+    "payment_id": "PAY-20250226-000123",
+    "transaction_date": "2025-02-26T10:30:00Z",
+    "status": "Pending",
+    "amount": {
+      "currency": "USD",
+      "value": "12500.75"
+    },
+    "payment_method": {
+      "type": "Wire Transfer",
+      "manual_approval_required" : "No"     
+    },
+    "debtor": {
+      "debtor_id": "DEB-456789",
+      "company_name": "ABC Manufacturing Ltd.",
+      "contact_person": {
+        "name": "John Doe",
+        "email": "johndoe@abcmfg.com"
+      },
+      "billing_address": {
+        "street": "456 Industrial Road",
+        "city": "Los Angeles",
+        "state": "CA",
+        "postal_code": "90001",
+        "country": "USA"
+      },
+      "tax_id": "US-123456789",
+      "bank_account": {
+        "bank_name": "West Coast Bank",
+        "swift_code": "WCBUS33XXX",
+        "iban": "US09876543210987654321",
+        "daily_transaction_limit_crossed": "False"
+      }
+    },
+    "creditor": {
+      "creditor_id": "CRED-789123",
+      "company_name": "XYZ Logistics Corp.",
+      "contact_person": {
+        "name": "Jane Smith",
+        "email": "janesmith@xyzlogistics.com"
+      },
+      "billing_address": {
+        "street": "789 Supply Chain Blvd",
+        "city": "New York",
+        "state": "NY",
+        "postal_code": "10001",
+        "country": "USA"
+      },
+      "tax_id": "US-987654321",
+      "bank_account": {
+        "bank_name": "East Coast Bank",
+        "swift_code": "ECBUS44XXX",
+        "iban": "US56789012345678901234"
+      }
+    },
+    "invoice_details": {
+      "invoice_number": "INV-20250226-001",
+      "issue_date": "2025-02-20",
+      "due_date": "2025-03-05",
+      "line_items": [
+        {
+          "description": "Freight Shipping Charges",
+          "quantity": 1,
+          "unit_price": "12000.00",
+          "total": "12000.00"
+        },
+        {
+          "description": "Customs Handling Fee",
+          "quantity": 1,
+          "unit_price": "500.75",
+          "total": "500.75"
+        }
+      ],
+      "subtotal": "12500.75",
+      "tax": {
+        "rate": "0%",
+        "amount": "0.00"
+      },
+      "total_due": "12500.75",
+      "currency": "USD"
+    },
+    "payment_terms": {
+      "payment_due_days": 30,
+      "late_fee_percentage": "2.5%",
+      "discount_for_early_payment": {
+        "days": 10,
+        "discount_percentage": "1.5%"
+      }
+    },
+    "remittance_information": {
+      "reference": "Payment for Invoice INV-20250226-001",
+      "additional_notes": "Please confirm receipt upon settlement."
+    },
+    "audit_trail": [
+      {
+        "timestamp": "2025-02-26T10:30:00Z",
+        "action": "Payment Initiated",
+        "performed_by": "John Doe (Debtor)"
+      }
+    ]
+  }
