@@ -1,0 +1,12 @@
+Based on the following JSON data, create a numbered list of step-by-step
+ instructions in natural language for entering this information into a web 
+ application.  
+ First steps are to login into the onboarding page i.e www.onboarding.com.
+ Each section in the json document needs to be filled one by one. After each section there will be a need to click on next button on the webpage.
+ Assume each key represents a field in the web application and present the 
+ instructions clearly and concisely.
+
+ Once done with filling all the sections, click on the submit button.
+
+JSON Data:
+{}
