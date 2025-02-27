@@ -1,0 +1,48 @@
+You are a financial analyst. Analyze the following payment JSON object and check for potential issues as mentioned below. 
+Return the list of reasons in natural language that are causing the payment to get stuck
+
+ 1. Banking Issues  
+- Incorrect Bank Details  
+  - Wrong SWIFT code, IBAN, or account number for either the creditor or debtor could cause the payment to fail.  
+  - check for validity of IBAN number for creditor and debitor fetched from real time data
+  - SWIFT code should always be a 10 character code
+
+- Bank Processing Delays  
+  - If the creditor's bank has processing restrictions, check if the paymentdue date has been crossed
+
+- Currency Mismatch or Restrictions  
+  - If the debtor's bank only processes domestic payments and this is an international wire, the payment could be held for manual review. Check using billing address and currency
+
+ 2. Compliance & Regulatory Issues  
+- KYC/AML (Know Your Customer / Anti-Money Laundering) Flags  
+  - Large payments (greater than 15000$) may trigger an AML check, especially if this is a new transaction between the debtor and creditor.  
+  - If one of the parties is flagged for suspicious activity, the payment could be held for further verification.  
+
+- Sanctions or Blacklist Issues  
+  - If either the creditor or debtor is on a sanctions list, the payment may be blocked.  
+  - Example: If `"tax_id": "US-987654321"` belongs to a sanctioned entity, the bank may freeze the transaction.   
+
+ 3. Invoice & Payment Terms Issues  
+- Invoice Dispute Between Creditor and Debtor  
+  - If ABC Manufacturing Ltd. disputes the invoice (e.g., incorrect charges in `line_items`), they may withhold payment.  
+  - Example: The debtor claims the `"Customs Handling Fee"` of `$500.75` is invalid and refuses to pay.  
+
+ 4. Technical & System Issues  
+- Transaction Processing Limit Exceeded  
+  - Some business accounts have a daily transaction limit. Check if debtor’s daily_transaction_limit_crossed has been crossed. 
+
+- Duplicate Payment Flags  
+  - If the system detects a similar payment made recently, it adds a flag to the  transaction as a duplicate and prevent processing.  
+
+ 5. Manual Review & Approval Delays  
+- Multi-Level Authorization Delays  
+  - If a particular transaction requires multi-level approval, "manual_approval_required" should be Yes, and then there should be additional field for approver name
+
+JSON PAYMENT DATA:
+{payment_data}
+
+ACTUAL CREDITOR BANK INFORMATION:
+{creditor_bank}
+
+ACTUAL DEBTOR BANK INFORMATION:
+{debtor_bank}

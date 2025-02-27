@@ -1,0 +1,8 @@
+smartOnboard_backend/.env
+smartOnboard_backend/app/__pycache__/main.cpython-312.pyc
+smartOnboard_backend/app/routers/__pycache__/api_calls.cpython-312.pyc
+smartOnboard_backend/app/routers/__pycache__/hello.cpython-312.pyc
+smartOnboard_backend/app/services/__pycache__/agent_plan.cpython-312.pyc
+*.pyc
+smartOnboard_backend/venv/docx-template/_rels/.rels
+smartOnboard_backend/venv/*

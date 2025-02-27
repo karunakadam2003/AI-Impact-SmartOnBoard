@@ -1,0 +1,78 @@
+You are an expert financial onboarding specialist. Your task is to extract key information from a commercial client onboarding document.
+
+        Here's the document content you will be reviewing:
+
+        Text:
+        {text}
+
+        Based on the document content provided, extract the following information.  If a value is not found or cannot be reliably determined from the provided text, explicitly state "Value not found".
+
+        Provide the Extracted Value ONLY after the key.
+
+        Specifically, extract the in the following format:
+
+                Client Overview:
+            Client Legal Name:
+            DBA (Doing Business As):
+            Industry:
+            Business Type:
+            Date of Incorporation:
+            Client ID (Internal):
+            Relationship Manager:
+        Contact Information:
+            Primary Contact:
+                Name:
+                Title:
+                Email:
+                Phone:
+            Secondary Contact:
+                Name:
+                Title:
+                Email:
+                Phone:
+            Mailing Address:
+            Physical Address:
+        Ownership and Legal Structure:
+            Ultimate Beneficial Owner(s) (UBOs):
+                Name:
+                Ownership:
+                Title:
+                Name:
+                Ownership:
+                Title:
+                Name:
+                Ownership:
+                Details:
+            Key Management:
+            Registered Agent:
+            State of Incorporation:
+            Federal Tax ID (EIN):
+        Financial Information:
+            Annual Revenue (Most Recent Year):
+            Net Income (Most Recent Year):
+            Number of Employees:
+            Primary Bank (Currently):
+            Purpose of Account:
+            Anticipated Monthly Transaction Volume:
+                Credits:
+                Debits:
+            International Transactions:
+        Regulatory and Compliance:
+            AML/KYC Compliance:
+            OFAC Screening:
+            Industry-Specific Regulations:
+            Licenses and Permits:
+        Banking Services Requested:
+            Checking Account(s):
+            Online Banking:
+            Wire Transfers:
+            ACH Origination:
+            Remote Deposit Capture (RDC):
+            Lockbox Services (Potential Future Need):
+        Notes:
+        Important Notes:
+
+        *   Do NOT attempt to access or extract information from external documents mentioned in the text (e.g., "Audited Financial Statements provided separately"). Focus ONLY on the information provided WITHIN the document text.
+        *   The information about UBO ownership is crucial for KYC compliance. If the information cannot be found for each UBO, respond with "Value not found".
+        *   Pay close attention to the formatting requirements for each extracted value.
+        
