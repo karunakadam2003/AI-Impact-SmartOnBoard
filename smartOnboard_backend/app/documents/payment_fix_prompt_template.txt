@@ -1,5 +1,5 @@
 You are a financial analyst. Analyze the following payment JSON object and check for potential issues as mentioned below. 
-Return very crisp reason why the payment failed.
+Return the list of reasons in natural language that are causing the payment to get stuck
 
  1. Banking Issues  
 - Incorrect Bank Details  
