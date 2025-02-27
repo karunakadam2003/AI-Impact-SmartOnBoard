@@ -1,11 +1,11 @@
 import React from "react";
-import StepperComponent from "./Components/StepperComponent";
+import StepperComponent from "./StepperComponent";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "./Components/Stepper.css"
-// import "./Stepper.css"; // Custom CSS file
+import "./Stepper.css"
+import "./Stepper.css"; // Custom CSS file
 
 
-function App() {
+function SmartOnboard() {
     return (
         <div>
 
@@ -174,21 +174,8 @@ function App() {
                                     <span className="ps-search-text">Search</span>
                                 </button>
                             </div>
-                            <div className="ps-fat-nav-l1-links">
+                            <div className="ps-fat-nav-l1-links active">
                                 <ul>
-                                    <li className="ps-fat-nav-item active">
-                                        <a data-platform="publicsite" href="index.html" exitdestination exitdisclaimer data-newbrowser enrollmentid data-rottracking className data-params data-responsive-params data-destinationtype="none" data-nativelinktype="none"> <span className="hidden">selected</span>  Personal </a>
-                                        <ul className="ps-fat-nav-l2" aria-expanded="true">
-                                            <li className="ps-fat-nav-subitem"><a href="checking/index.html" className>Checking</a></li>
-                                            <li className="ps-fat-nav-subitem"><a href="savings-cds/index.html" className>Savings &amp; CDs</a></li>
-                                            <li className="ps-fat-nav-subitem"><a href="https://creditcards.wellsfargo.com/?sub_channel=WEB&vendor_code=WF&linkLoc=FNMC&lang=en" data-platform="creditCardsWF">Credit Cards</a></li>
-                                            <li className="ps-fat-nav-subitem"><a href="mortgage/index.html" className>Home Loans</a></li>
-                                            <li className="ps-fat-nav-subitem"><a href="personal-loans/index.html" className>Personal Loans</a></li>
-                                            <li className="ps-fat-nav-subitem"><a href="auto-loans/index.html" className>Auto Loans</a></li>
-                                            <li className="ps-fat-nav-subitem"><a href="premier/index.html" className>Premier</a></li>
-                                            <li className="ps-fat-nav-subitem"><a href="financial-health/index.html">Education &amp; Tools</a></li>
-                                        </ul>
-                                    </li>
                                     <li className="ps-fat-nav-item"><a data-platform="publicsite" href="investing-wealth/index.html" exitdestination exitdisclaimer data-newbrowser enrollmentid data-rottracking className data-params data-responsive-params data-destinationtype="none" data-nativelinktype="none">Investing &amp; Wealth Management</a></li>
                                     <li className="ps-fat-nav-item"><a data-platform="publicsite" href="biz/index.html" exitdestination exitdisclaimer data-newbrowser enrollmentid data-rottracking className data-params data-responsive-params data-destinationtype="none" data-nativelinktype="none">Small Business</a></li>
                                     <li className="ps-fat-nav-item"><a data-platform="publicsite" href="com/index.html" exitdestination exitdisclaimer data-newbrowser enrollmentid data-rottracking className data-params data-responsive-params data-destinationtype="none" data-nativelinktype="none">Commercial Banking</a></li>
@@ -912,342 +899,22 @@ function App() {
                 <div className="container-l3-mobile" id="containerL3Mobile" />
                 <main className="ps-body-wrapper">
                     <h1 className="hidden" id="skip">Wells Fargo</h1>
-                    {/* Body Region */}
-                    {/* <div className="signon-container" data-cid="tcm:84-224415" data-ctid="tcm:83-2046-8">
-                        <div className="sign-top">
-                            <h2 id="sign-on-header">
-                                Welcome</h2>
-                            <span>Sign on to manage your accounts.</span>
-                            <form autoComplete="off" name="signon" id="frmSignon" action="https://connect.secure.wellsfargo.com/auth/login/do" method="post" data-login-app="true">
-                                <div className="form-field">
-                                    <input type="text" accessKey="U" id="userid" className="form-element formElementText login_field signon-in pmask" name="j_username" maxLength={14} defaultValue autoComplete="off" />
-                                    <label htmlFor="userid" id="userid_label" className="id_label">Username</label>
-                                </div>
-                                <div className="form-field mr-tp-10 password-div">
-                                    <input type="password" accessKey="P" id="password" className="form-element formElementPassword login_field signon-in pmask" name="j_password" maxLength={32} autoComplete="off" />
-                                    <label htmlFor="password" id="password_label" className="id_label">Password</label>
-                                    <a href="#" id="password-visible-text" className="show-password password-visible-icon" role="button" aria-label="show password">Show</a>
-                                </div>
-                                <div id="saveuid" className="save-username save-us-mb">
-                                    <input type="checkbox" accessKey="S" id="saveusername" className="c29link" name="saveusername" data-content-id="c29content-save-username" triggerhover="false" isclickable="true" />
-                                    <label htmlFor="saveusername" className="lsc saveuser-pd">
-                                        Save username
-                                        <span className="hidden">Notice - For your security,
-                                            we do not recommend using this feature on a shared device.</span></label>
-                                    <input type="hidden" name="save-username" id="save-username" defaultValue="false" />
-                                    <input type="hidden" name="hdnuserid" id="hdnuserid" defaultValue />
-                                </div>
-                                <div className="form-button">
-                                    <input type="submit" name="btnSignon" id="btnSignon" className="ps-btn-primary" data-mrkt-tracking-id="3d6c76ba-9d34-4def-977d-a79cb8afc738" defaultValue="Sign On" />
-                                    <a className="enroll" href="https://oam.wellsfargo.com/oamo/identity/authentication?execution=e1s1/">Enroll</a>
-                                </div>
-                                <input type="hidden" name="screenid" defaultValue="SIGNON" />
-                                <input type="hidden" name="origination" defaultValue="WebCons" />
-                                <input type="hidden" name="LOB" defaultValue="Cons" />
-                                <input id="jsenabled" name="jsenabled" type="hidden" defaultValue="false" />
-                                <input id="origin" name="origin" type="hidden" defaultValue="cob" />
-                                <input name="homepage" type="hidden" defaultValue="true" />
-                            </form>
-                        </div>
-                        <div className="signon-bottom">
-                            <a href="https://oam.wellsfargo.com/oamo/identity/help/passwordhelp/">Forgot username or password?</a>
-                            <a href="privacy-security/fraud/indexa509.html?linkLoc=signon">Security Center</a>
-                            <a href="privacy-security/indexa509.html?linkLoc=signon">Privacy, Cookies, and Legal</a>
-                        </div>
-                        <div area-hidden="true" className="c29content-tooltip tooltip-top" data-content-id="c29content-save-username">
-                            <span className="c29close">
-                                <p><strong>Notice</strong></p>
-                                <a href="#" className="tooltip-close-icon" />
-                            </span>
-                            <p className="security-text">For your security, we do not recommend using this feature on a shared device.</p>
-                        </div>
-                    </div> */}
-                    <div className="marquee-container">
-                        <div className="cmsDefault" data-placement-name="WF_CON_HP_PRIMARY_BNR" data-presentation-order={1} data-placement-presentation-order="WF_CON_HP_PRIMARY_BNR-1" lang="en">
-                            <div data-cid="tcm:242-223859-16" data-ctid="tcm:91-223657-32">
-                                <div className="marquee-wrap marquee-black">
-                                    <div className="marquee-img">
-                                        <img fetchpriority="high" src="assets/images/contextual/responsive/hpprimary/wfi_ph_a_218584479_1700x700.jpg" alt="" />
-                                    </div>
-                                    <div className="marquee-content">
-                                        <h2>Say hello to convenient checking</h2>
-                                        <p>Explore our checking options and choose the right account for you</p>
-                                        <div className="ps-padding">
-                                            {/* <a className="ps-btn-secondary" data-cid="tcm:242-223859-16" data-ctid="tcm:91-223657-32" data-presentation={2} href="checking/index14fa.html?utm_source=OU&utm_campaign=checking-defaults-Q124&utm_medium=HPPB" aria-label="Get started. Explore our checking options and choose the right account for you.">Get started &gt;&gt;</a> */}
-                                        </div>
-                                    </div>
-                                </div>
+                    {/* Stepper Component */}
+                          <div className="ps-mid-page-title-wrapper">
+                                <h2 className="ps-mid-page-title">SmartOnBoard</h2>
+                                
                             </div>
-                        </div>
-                    </div>
-                      {/* Stepper Component
-                      <div className="ps-mid-page-title-wrapper">
-                            <div className="ps-mid-page-title-top-line">‍</div>
-                            <h2 className="ps-mid-page-title">SmartOnBoard</h2>
-                        </div>
-                      
-                      <StepperComponent></StepperComponent> */}
+                            <button className="btn next">Help me onboard</button>
+                          
+                          <StepperComponent></StepperComponent>
                     <div className="alt-nav-container presentedElement" data-cid="tcm:182-234954" data-ctid="tcm:91-223671-32">                     <div className="row">                         <ul className="alt-nav-links">                             <li className="ps-col-xs-6 ps-col-md-4 ps-col-sm-6">                                 <a href="checking/index.html" className="alt-nav-link alt-check">                                     <span className="alt-personal-checking-icon" aria-hidden="true" />                                     Checking                               </a> </li>                             <li className="ps-col-xs-6 ps-col-md-4 ps-col-sm-6">                                 <a href="savings-cds/index.html" className="alt-nav-link alt-currency-us-dollar">                                     <span className="alt-personal-sav-cds-icon" aria-hidden="true" />                                     Savings &amp; CDs                               </a> </li>                             <li className="ps-col-xs-6 ps-col-md-4 ps-col-sm-6">                                 <a href="https://creditcards.wellsfargo.com/" className="alt-nav-link alt-creditcard">                                     <span className="alt-personal-creditcard-icon" aria-hidden="true" />                                     Credit Cards                               </a> </li>                             <li className="ps-col-xs-6 ps-col-md-4 ps-col-sm-6">                                 <a href="mortgage/index.html" className="alt-nav-link alt-icon-house">                                     <span className="alt-personal-homeloan-icon" aria-hidden="true" />                                     Home Loans                               </a> </li>                             <li className="ps-col-xs-6 ps-col-md-4 ps-col-sm-6">                                 <a href="personal-loans/index.html" className="alt-nav-link alt-cash-in-hand">                                     <span className="alt-personal-personalloan-icon" aria-hidden="true" />                                     Personal Loans                               </a> </li>                             <li className="ps-col-xs-6 ps-col-md-4 ps-col-sm-6">                                 <a href="auto-loans/index.html" className="alt-nav-link alt-vehicle-car">                                     <span className="alt-personal-autoloan-icon" aria-hidden="true" />                                     Auto Loans                               </a> </li>                             <li className="ps-col-xs-6 ps-col-md-4 ps-col-sm-6">                                 <a href="investing-wealth/index.html" className="alt-nav-link alt-investing">                                     <span className="alt-personal-investing-icon" aria-hidden="true" />                                     Investing                               </a> </li>                             <li className="ps-col-xs-6 ps-col-md-4 ps-col-sm-6">                                 <a href="premier/index.html" className="alt-nav-link star-in-hand-icon">                                     <span className="alt-personal-premier-icon" aria-hidden="true" />                                        Premier                               </a> </li>                             <li className="ps-col-xs-6 ps-col-md-4 ps-col-sm-6">                                 <a href="financial-education/index.html" className="alt-nav-link alt-apple">                                     <span className="alt-personal-educationtools-icon" aria-hidden="true" />                                     Education &amp; Tools                               </a> </li> </ul> </div> </div>
-                    <div className="ps-marketing-small-promo-items" data-cid="tcm:242-228824-16" data-ctid="tcm:91-228642-32">
-                        <div className="ps-marketing-small-promo-item cmsDefault" lang="en" data-placement-name="WF_CON_HP_SML_PRIMARY" data-presentation-order={1} data-placement-presentation-order="WF_CON_HP_SML_PRIMARY-1">
-                            <div data-cid="tcm:242-228778-16" data-ctid="tcm:91-228643-32">
-                                <div className="mark-small-promo-icon theme 1">
-                                    <div className="ps-marketing-icon-container">
-                                        <div className="ps-marketing-icon">
-                                            <img data-deferred-src="assets/images/contextual/responsive/smlprimary/wfi000_ic_b-wf_icon_house_gradient_64x64.png" alt="" className="deferred" src="#" />
-                                        </div>
-                                    </div>
-                                    <div className="ps-marketing-text">
-                                        <h2>Find mortgage happiness</h2>
-                                        <p className="ps-marketing-text-content">With a down payment as low as 3%</p>
-                                        <p className="learn-more-mobile">
-                                            <span><a className="c7" data-cid="tcm:242-228778-16" data-ctid="tcm:91-228643-32" data-presentation={1} href="mortgage/buying-a-house/indexc34f.html?dm=DMIWE7AWHK" aria-label="Find mortgage happiness with a down payment as low as 3%. Learn more.">Learn more</a></span>
-                                        </p>
-                                    </div>
-                                    <div className="ps-marketing-promo-link">
-                                        <p className="learn-more">
-                                            <span><a className="c7" data-cid="tcm:242-228778-16" data-ctid="tcm:91-228643-32" data-presentation={1} href="mortgage/buying-a-house/indexc34f.html?dm=DMIWE7AWHK" aria-label="Find mortgage happiness with a down payment as low as 3%. Learn more.">Learn more</a></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="ps-marketing-small-promo-item cmsDefault" lang="en" data-placement-name="WF_CON_HP_SML_PRIMARY" data-presentation-order={2} data-placement-presentation-order="WF_CON_HP_SML_PRIMARY-2">
-                            <div data-cid="tcm:242-228784-16" data-ctid="tcm:91-228643-32">
-                                <div className="mark-small-promo-icon theme 1">
-                                    <div className="ps-marketing-icon-container">
-                                        <div className="ps-marketing-icon">
-                                            <img src="assets/images/contextual/responsive/smlprimary/wfi000_ic_b_wallet_color-gradient_64x64.png" alt="" />
-                                        </div>
-                                    </div>
-                                    <div className="ps-marketing-text">
-                                        <h2>Unlock convenient checking</h2>
-                                        <p className="ps-marketing-text-content">Discover the benefits of our checking accounts and choose the right one for you</p>
-                                        <p className="learn-more-mobile">
-                                            <span><a className="c7" data-cid="tcm:242-228784-16" data-ctid="tcm:91-228643-32" data-presentation={1} href="checking/index570c.html?utm_source=OU&utm_campaign=checking-defaults-Q324&utm_medium=HPPS" aria-label="Unlock convenient checking. Discover the benefits of our checking accounts and choose the right one for you. Get started.">Get started</a></span>
-                                        </p>
-                                    </div>
-                                    <div className="ps-marketing-promo-link">
-                                        <p className="learn-more">
-                                            <span><a className="c7" data-cid="tcm:242-228784-16" data-ctid="tcm:91-228643-32" data-presentation={1} href="checking/index570c.html?utm_source=OU&utm_campaign=checking-defaults-Q324&utm_medium=HPPS" aria-label="Unlock convenient checking. Discover the benefits of our checking accounts and choose the right one for you. Get started.">Get started</a></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="ps-marketing-small-promo-item cmsDefault" lang="en" data-placement-name="WF_CON_HP_SML_PRIMARY" data-presentation-order={3} data-placement-presentation-order="WF_CON_HP_SML_PRIMARY-3">
-                            <div data-cid="tcm:242-228805-16" data-ctid="tcm:91-228643-32">
-                                <div className="mark-small-promo-icon theme 1">
-                                    <div className="ps-marketing-icon-container">
-                                        <div className="ps-marketing-icon">
-                                            <img data-deferred-src="assets/images/contextual/responsive/smlprimary/wfi000_ic_b-wf_icon_ui_card_gradient_64x64.png" alt="" className="deferred" src="#" />
-                                        </div>
-                                    </div>
-                                    <div className="ps-marketing-text">
-                                        <h2>Find a credit card</h2>
-                                        <p className="ps-marketing-text-content">Low intro rate, cash back, rewards and more</p>
-                                        <p className="learn-more-mobile">
-                                            <span><a className="c7" data-cid="tcm:242-228805-16" data-ctid="tcm:91-228643-32" data-presentation={1} href="https://creditcards.wellsfargo.com/?sub_channel=WEB&vendor_code=IA&lang=en&product_code=CC&placement_id=Small_Primary&offerid=C_ccd_findcreditcardrspv_smlprimary&slotid=WF_CON_HP_SMLPRIMARY&linkloc=HP&OfferType=TK1" aria-label="Find a credit card. Low intro rate, cash back, rewards and more. Learn more." enrollmentid={3845}>Learn more</a></span>
-                                        </p>
-                                    </div>
-                                    <div className="ps-marketing-promo-link">
-                                        <p className="learn-more">
-                                            <span><a className="c7" data-cid="tcm:242-228805-16" data-ctid="tcm:91-228643-32" data-presentation={1} href="https://creditcards.wellsfargo.com/?sub_channel=WEB&vendor_code=IA&lang=en&product_code=CC&placement_id=Small_Primary&offerid=C_ccd_findcreditcardrspv_smlprimary&slotid=WF_CON_HP_SMLPRIMARY&linkloc=HP&OfferType=TK1" aria-label="Find a credit card. Low intro rate, cash back, rewards and more. Learn more." enrollmentid={3845}>Learn more</a></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="ps-marketing-small-promo-item" lang="en">
-                            <div data-cid="tcm:182-228910-16" data-ctid="tcm:91-223671-32">     <div className="task-wrapper" id="marketing-rates">         <div className="mark-small-promo-illustration">             <div className="ps-marketing-text ">                 <div>                     <h2 className="ps-marketing-text-heading ">Interest rates today</h2>                     <a href="help/rates/indexfe88.html?linkLoc=taskbar">                         <p className="learn-more-mobile">                             <span>Learn more</span>                             <span className="right-chevron" /> </p> </a> </div>                 <div className="ps-marketing-icon " id="ps-marketing-icon"><img data-deferred-src="assets/images/rwd/first_time_experience-account_summary.png" alt="" className="deferred" /></div> <div> <ul>                         <li className="task" id="task-rates">                             <div className="taskContentWrapper taskbar-nonxs">                                 <div className="taskHiddenContent" id="check-rates" style={{ display: 'none' }}>                                     <form name="frmCheckRates" id="frmCheckRates" action="https://www.wellsfargo.com/dropdown" autoComplete="off">                                         <div id="check_rates_panel"><label htmlFor="check_rates_dropdown" id="check_rates_dropdown_lable">Check                                                 rates</label> <select name="dropdown" id="check_rates_dropdown" aria-label="Check rates">                                                 <option value="personal.responsive.checkRates.Mortgage">Mortgage rates                                               </option>                                                 <option value="personal.responsive.checkRates.CDS">Savings and CDs rates                                               </option>                                                 <option value="creditCardsWFHost">Credit card                                                     rates</option>                                                 <option value="personal.responsive.checkRates.PersonalLoans">Personal                                                     loan rates</option>                                                 <option value="personal.responsive.checkRates.More">All rates</option> </select> </div>                                         <button className="ps-btn-alt go-btn" id="rates-go-btn" role="button" type="submit">Go</button> </form> </div> </div> </li> </ul> </div> </div>             <div className="ps-marketing-promo-link ">                 <a className="check-rates-wrapper" id="check-rates-wrapper" aria-label="Check rates opens dropdown" role="button" href="#" data-goto="/help/rates/">                     <p className="learn-more ">                         <span>Check rates</span>                         <span className="right-chevron" /> </p> </a> </div> </div> </div> </div>
-                        </div>
-                    </div>
-                    <div className="ps-large-promo-full-container">
-                        <div className="cmsDefault" data-placement-name="WF_CON_HP_LRG_PROMO" data-presentation-order={1} data-placement-presentation-order="WF_CON_HP_LRG_PROMO-1" lang="en">
-                            <div data-cid="tcm:242-223909-16" data-ctid="tcm:91-223664-32">
-                                <div className="ps-large-promo-full" lang="en">
-                                    <div className="ps-large-promo-full-wrapper">
-                                        <div className="ps-promo-full-items">
-                                            <div className="ps-promo-full-item">
-                                                <div className="ps-promo-full-image">
-                                                    <img data-deferred-src="assets/images/contextual/responsive/lpromo/wfi_ph_g_1199830824_1600x700.jpg" alt="" className="deferred" src="#" />
-                                                </div>
-                                                <div className="ps-promo-full-content">
-                                                    <h2>A home of your own</h2>
-                                                    <p>With low down payment options on a fixed-rate mortgage</p>
-                                                    <div className="ps-promo-full-links">
-                                                        <a className="ps-btn-secondary" data-cid="tcm:242-223909-16" data-ctid="tcm:91-223664-32" data-presentation={2} href="mortgage/buying-a-house/index20dc.html?dm=DMIWE7AWHM" aria-label="Get started with fixed-rate mortgages">Get started</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-background-white text-aligned-center" data-cid="tcm:242-238382-16" data-ctid="tcm:91-236590-32">
-                        <div className="ps-mid-page-title-wrapper">
-                            <div className="ps-mid-page-title-top-line">‍</div>
-                            <h2 className="ps-mid-page-title">Financial guidance and support</h2>
-                        </div>
-                        <div className="card-container three-card card-left card-theme2">
-                            <div className="cmsDefault enhanced-txt-cm mid-size-promo" data-placement-name="WF_CON_HP_SML_PROMO" data-presentation-order={1} data-placement-presentation-order="WF_CON_HP_SML_PROMO-1" lang="en">
-                                <div className="text-aligned-left" data-cid="tcm:242-238325-16" data-ctid="tcm:91-236591-32">
-                                    <div><img data-deferred-src="assets/images/contextual/responsive/smlpromo/wfi000_ph_g_1200094303_616x353.jpg" alt="" className="deferred" src="#" /></div>
-                                    <div className="enhanced-txt-body">
-                                        <h3 className="title2-SemiBold">Save. Invest. Retire well.</h3>
-                                        <div className="subheadline-regular">Discover how to start saving to meet your retirement goals</div>
-                                        <p><a href="financial-health/investing-and-retirement/index.html" aria-label="Get ready for retirement. Save. Invest. Retire well." className="ps-btn-secondary" data-cid="tcm:242-238325-16" data-ctid="tcm:91-236591-32" data-presentation={2}>Get ready for retirement</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="cmsDefault enhanced-txt-cm mid-size-promo" data-placement-name="WF_CON_HP_SML_PROMO" data-presentation-order={2} data-placement-presentation-order="WF_CON_HP_SML_PROMO-2" lang="en">
-                                <div className="text-aligned-left" data-cid="tcm:242-238327-16" data-ctid="tcm:91-236591-32">
-                                    <div><img data-deferred-src="assets/images/contextual/responsive/smlpromo/wfi000_ph_g_900217040_616x353.jpg" alt="" className="deferred" src="#" /></div>
-                                    <div className="enhanced-txt-body">
-                                        <h3 className="title2-SemiBold">Reduce debt. Build credit. Enjoy life.</h3>
-                                        <div className="subheadline-regular">Discover four steps that may help you reduce debt and strengthen credit</div>
-                                        <p><a href="financial-health/credit-and-debt/indexb4b0.html?utm_source=WFHP&utm_medium=DEFBanner&utm_campaign=FHSMLPROMO" aria-label="Build credit and reduce debt Reduce debt. Build credit. Enjoy life" className="ps-btn-secondary" data-cid="tcm:242-238327-16" data-ctid="tcm:91-236591-32" data-presentation={2}>Build credit and reduce debt</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="cmsDefault enhanced-txt-cm mid-size-promo" data-placement-name="WF_CON_HP_SML_PROMO" data-presentation-order={3} data-placement-presentation-order="WF_CON_HP_SML_PROMO-3" lang="en">
-                                <div className="text-aligned-left" data-cid="tcm:242-238328-16" data-ctid="tcm:91-236591-32">
-                                    <div><img data-deferred-src="assets/images/contextual/responsive/smlpromo/wfi000_ph_g_557715963_616x353.jpg" alt="" className="deferred" src="#" /></div>
-                                    <div className="enhanced-txt-body">
-                                        <h3 className="title2-SemiBold">Get tools. Get tips. Get peace of mind.</h3>
-                                        <div className="subheadline-regular">Discover digital tools to help you budget, save, manage credit, and more</div>
-                                        <p><a href="financial-health/tools/indexb4b0.html?utm_source=WFHP&utm_medium=DEFBanner&utm_campaign=FHSMLPROMO" aria-label="Access the toolkit and Get tools. Get tips. Get peace of mind." className="ps-btn-secondary" data-cid="tcm:242-238328-16" data-ctid="tcm:91-236591-32" data-presentation={2}>Access the toolkit</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="ps-native-app-container Gray" data-cid="tcm:182-244645-16" data-ctid="tcm:91-244420-32">
-                        <div className="ps-native-app-background non-ceo-app">
-                            <div className="native-app-header">
-                                <h2 className="native-app-header-text">Need help? Ask Fargo<sup>®</sup></h2>
-                                <p className="native-app-header-text">Fargo<sup>1</sup> gives you valuable insights like a summary of your spending by category, retailer and across accounts. Find it only in the Wells Fargo Mobile<sup>®</sup> app.</p>
-                            </div>
-                            <div className="ps-native-app-content">
-                                <div className="native-app-carousel-wrapper">
-                                    <div className="native-app-carousel"><img src="assets/images/rwd/Native_App_Phone_Personal_v11.png" alt="" /></div>
-                                    <div className="native-app-slider-block">
-                                        <div className="native-app-header-large">
-                                            <h2 className="native-app-header-text">Need help? Ask Fargo<sup>®</sup></h2>
-                                            <p className="native-app-header-text">Fargo<sup>1</sup> gives you valuable insights like a summary of your spending by category, retailer and across accounts. Find it only in the Wells Fargo Mobile<sup>®</sup> app.</p>
-                                        </div>
-                                        <div className="native-app-middle-block">
-                                            <div className="native-app-slide-content-block" id="native-app-slide-content-block">
-                                                <div className="slideText">
-                                                    <ul>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="ps-download-app-container">
-                                            <div className="ps-download-app">
-                                                <div className="ps-download-text-container">
-                                                    <hr className="ps-mobile-line-break" />
-                                                    <p className="ps-download-text">
-                                                        Download our app
-                                                    </p>
-                                                    <div className="ps-download-buttons">
-                                                        <a role="button" data-exit="true" className="ps-button-applestore" data-href-id={1224111702} href="#">
-                                                            <span />
-                                                            <span>
-                                                                App Store</span>
-                                                        </a>
-                                                        <a role="button" data-exit="true" className="ps-button-googleplay" data-href-id={3224111702} href="#">
-                                                            <span />
-                                                            <span>
-                                                                Google Play</span>
-                                                        </a>
-                                                    </div>
-                                                    <div className="ps-download-app-disclaimer">
-                                                        <span>*Screen image is simulated</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div className="card-background-white text-aligned-center">
-                  
-                       
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
 
-                    </div>
-                    <div className="contact-bar-container" data-cid="tcm:84-224326-16" data-ctid="tcm:91-223673-32">
-                        <div className="row">
-                            <div className="col-12 col-s-12">
-                                <h2 className="contact-bar-header">How can we help?</h2>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <ul className="contact-bar-links">
-                                <li className="ps-col-xl-3 ps-col-lg-3 ps-col-md-6 ps-col-s-12">
-                                    <a href="#" role="button" tabIndex={0} className="contact-bar-collapsible contact-bar-location contact-bar-location-header" aria-expanded="false">
-                                        <span className="contact-bar-location-icon">‍</span>
-                                        <span role="heading" aria-level={3} className="contact-bar-select">Find a location</span>
-                                        <span className="collapsible-icon collapsible-icon-collapse">‍</span>
-                                    </a>
-                                    <div className="contact-bar-content contact-bar-content-hidden" aria-hidden="true">
-                                        <div className="contact-bar-form-grp">
-                                            <form action="https://www.wellsfargo.com/locator/search/" method="get" className="find_location" xmlns="http://www.w3.org/1999/xhtml">
-                                                <div className="contact-bar-form-input">
-                                                    <input type="text" aria-label="City, State or ZIP" placeholder id="contactBarLocator" name="searchTxt" className="contact-bar-input-box" />
-                                                    <label htmlFor="contactBarLocator">City, State or ZIP</label>
-                                                </div>
-                                                <div className="contact-bar-form-btn">
-                                                    <button type="submit">Go</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="ps-col-xl-3 ps-col-lg-3 ps-col-md-6 ps-col-s-12">
-                                    <a href="#" role="button" tabIndex={0} className="contact-bar-collapsible contact-bar-appointment contact-bar-appointment-header" aria-expanded="false">
-                                        <span className="support-dropdown-icon appointment-icon">‍</span>
-                                        <span role="heading" aria-level={3} className="contact-bar-select">Make an appointment</span>
-                                        <span className="collapsible-icon collapsible-icon-collapse">‍</span>
-                                    </a>
-                                    <div className="contact-bar-content contact-bar-content-hidden" aria-hidden="true">
-                                        <div className="contact-bar-form-grp">
-                                            <form action="https://www.wellsfargo.com/locator/search/" method="get" className="find_location" xmlns="http://www.w3.org/1999/xhtml">
-                                                <div className="contact-bar-form-input">
-                                                    <input type="text" aria-label="City, State or ZIP" placeholder id="contactBarMAA" name="searchTxt" className="contact-bar-input-box" />
-                                                    <label htmlFor="contactBarMAA">City, State or ZIP</label>
-                                                </div>
-                                                <div className="contact-bar-form-btn">
-                                                    <input name="maasrch" id="maasrch" defaultValue="Y" type="hidden" />
-                                                    <button type="submit">Go</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="ps-col-xl-3 ps-col-lg-3 ps-col-md-6 ps-col-s-12">
-                                    <a href="#" role="button" tabIndex={0} className="contact-bar-collapsible contact-bar-call" aria-expanded="false">
-                                        <span className="contact-bar-appointment-icon">‍</span>
-                                        <span role="heading" aria-level={3} className="contact-bar-select">Quick help</span>
-                                        <span className="collapsible-icon collapsible-icon-collapse">‍</span>
-                                    </a>
-                                    <div className="contact-bar-content contact-bar-call-desc contact-bar-content-hidden" aria-hidden="true">
-                                        <ul>
-                                            <li><a href="help/index.html">Customer service and FAQs</a></li>
-                                            <li> <a href="help/routing-number/index.html">Find routing and account numbers</a> </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div />
-                    </div>
+                    
                 </main>
 
 
@@ -1555,4 +1222,4 @@ function App() {
     );
 }
 
-export default App;
+export default SmartOnboard;

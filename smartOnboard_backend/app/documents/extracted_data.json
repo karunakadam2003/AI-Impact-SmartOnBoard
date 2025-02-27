@@ -41,11 +41,10 @@
     "Licenses and Permits": "Valid business license in Anytown, CA. All required environmental permits are current.",
     "**Banking Services Requested": "**",
     "Checking Account(s)": "Commercial Checking Account (USD)",
-    "Online Banking": "Full access for authorized users (Robert Smith, Alice Johnson), Transaction reporting, wire transfers, ACH origination",
+    "Online Banking": "Full access for authorized users (Robert Smith, Alice Johnson) Transaction reporting, wire transfers, ACH origination",
     "Wire Transfers": "Domestic and international wire transfer capabilities.",
     "ACH Origination": "For payroll and vendor payments.",
     "Remote Deposit Capture (RDC)": "To deposit checks remotely.",
     "Lockbox Services (Potential Future Need)": "Evaluate feasibility of lockbox services for accounts receivable.",
-    "**Notes": "**",
-    "**Important Notes": "**"
+    "**Important Notes": "**  None. All information extracted from provided text."
 }
