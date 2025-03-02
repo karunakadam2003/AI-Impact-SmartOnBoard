@@ -41,14 +41,23 @@ const Stepper = () => {
             <div className="steps-container">
                 <div className="steps">
                     {[
+                        // { id: 1, icon: "fa-pencil-alt", text: "Client Overview" },
+                        // { id: 2, icon: "fa-info-circle", text: "Contact Information" },
+                        // { id: 3, icon: "fa-users", text: "Ownership and Legal Structure" },
+                        // { id: 4, icon: "fa-chart-line", text: "Financial Information" },
+                        // { id: 5, icon: "fa-shield-alt", text: "Regulatory and Compliance" },
+                        // { id: 6, icon: "fa-university", text: "Banking Services Requested" },
+                        // { id: 7, icon: "fa-sticky-note", text: "Important Notes" },
+                        // { id: 8, icon: "fa-check", text: "Finish" }
+
+
+
                         { id: 1, icon: "fa-pencil-alt", text: "Client Overview" },
-                        { id: 2, icon: "fa-info-circle", text: "Contact Information" },
-                        { id: 3, icon: "fa-users", text: "Ownership and Legal Structure" },
-                        { id: 4, icon: "fa-chart-line", text: "Financial Information" },
-                        { id: 5, icon: "fa-shield-alt", text: "Regulatory and Compliance" },
-                        { id: 6, icon: "fa-university", text: "Banking Services Requested" },
-                        { id: 7, icon: "fa-sticky-note", text: "Important Notes" },
-                        { id: 8, icon: "fa-check", text: "Finish" }
+                        { id: 2, icon: "fa-users", text: "Ownership and Legal Structure" },
+                        { id: 3, icon: "fa-chart-line", text: "Financial Information" },
+                        { id: 4, icon: "fa-check", text: "Finish" }
+
+
                     ].map(({ id, icon, text }) => (
                         <div key={id} className={`step ${step === id ? "active" : ""}`}>
                             <div className="step-title">
@@ -77,7 +86,7 @@ const Stepper = () => {
                     </div>
                 )}
 
-                {step === 2 && (
+                {/* {step === 2 && (
                     <div className="stepper-content">
                         <h3>Contact Information</h3>
                         <input type="text" name="primaryContact" placeholder="Primary Contact" className="form-control" onChange={handleChange} />
@@ -92,9 +101,9 @@ const Stepper = () => {
                             <button className="btn next" onClick={() => navigate(3)}>Next</button>
                         </div>
                     </div>
-                )}
+                )} */}
 
-                {step === 3 && (
+                {step === 2 && (
                     <div className="stepper-content">
                         <h3>Ownership and Legal Structure</h3>
                         <input type="text" name="ubos" placeholder="Ultimate Beneficial Owner(s) (UBOs)" className="form-control" onChange={handleChange} />
@@ -105,13 +114,13 @@ const Stepper = () => {
                         <input type="text" name="stateOfIncorporation" placeholder="State of Incorporation" className="form-control" onChange={handleChange} />
                         <input type="number" name="federalTaxId" placeholder="Federal Tax ID (EIN)" className="form-control" onChange={handleChange} />
                         <div className="button-group">
-                            <button className="btn prev" onClick={() => navigate(2)}>Previous</button>
-                            <button className="btn next" onClick={() => navigate(4)}>Next</button>
+                            <button className="btn prev" onClick={() => navigate(1)}>Previous</button>
+                            <button className="btn next" onClick={() => navigate(3)}>Next</button>
                         </div>
                     </div>
                 )}
 
-                {step === 4 && (
+                {step === 3 && (
                     <div className="stepper-content">
                         <h3>Financial Information</h3>
                         <input type="text" name="annualRevenue" placeholder="Annual Revenue (Most Recent Year)" className="form-control" onChange={handleChange} />
@@ -124,13 +133,13 @@ const Stepper = () => {
                         <input type="text" name="debits" placeholder="Debits" className="form-control" onChange={handleChange} />
                         <input type="text" name="internationalTransactions" placeholder="International Transactions" className="form-control" onChange={handleChange} />
                         <div className="button-group">
-                            <button className="btn prev" onClick={() => navigate(3)}>Previous</button>
-                            <button className="btn next" onClick={() => navigate(5)}>Next</button>
+                            <button className="btn prev" onClick={() => navigate(2)}>Previous</button>
+                            <button className="btn next" onClick={() => navigate(4)}>Next</button>
                         </div>
                     </div>
                 )}
 
-                {step === 5 && (
+                {/* {step === 5 && (
                     <div className="stepper-content">
                         <h3>Regulatory and Compliance</h3>
                         <input type="text" name="amlKycCompliance" placeholder="AML/KYC Compliance" className="form-control" onChange={handleChange} />
@@ -142,9 +151,9 @@ const Stepper = () => {
                             <button className="btn next" onClick={() => navigate(6)}>Next</button>
                         </div>
                     </div>
-                )}
+                )} */}
 
-                {step === 6 && (
+                {/* {step === 6 && (
                     <div className="stepper-content">
                         <h3>Banking Services Requested</h3>
                         <input type="text" name="checkingAccounts" placeholder="Checking Account(s)" className="form-control" onChange={handleChange} />
@@ -158,9 +167,9 @@ const Stepper = () => {
                             <button className="btn next" onClick={() => navigate(7)}>Next</button>
                         </div>
                     </div>
-                )}
+                )} */}
 
-                {step === 7 && (
+                {/* {step === 7 && (
                     <div className="stepper-content">
                         <h3>Important Notes</h3>
                         <input type="text" name="importantNotes" placeholder="Important Notes" className="form-control" onChange={handleChange} />
@@ -169,9 +178,9 @@ const Stepper = () => {
                             <button className="btn next" onClick={handleFinish}>Finish</button>
                         </div>
                     </div>
-                )}
+                )} */}
 
-                {step === 8 && (
+                {step === 4 && (
                     <div className="stepper-content">
                         <h3>Finish</h3>
                         <p>🎉 Congratulations! You have completed the process.</p>

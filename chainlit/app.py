@@ -1,13 +1,15 @@
 import asyncio
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 import chainlit as cl
 from tools import browser_agent, llm_layer, onboarding_pipeline
 import requests
 from agents.rm_agent import ConversationalAgent
 from agents.react_agent import ReactAgent
 from templates.personas import STANDARD_PERSONA, RM_PERSONA
-from dotenv import load_dotenv
-load_dotenv()
+
 
 
 commands = [
