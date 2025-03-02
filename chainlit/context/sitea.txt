@@ -1,0 +1,55 @@
+Context Summary for http://localhost:5000/sitea.html
+
+```text
+# Context: Bank Customer Onboarding (Site A)
+
+**URL:** http://localhost:5000/sitea.html
+
+**Description:** This page simulates a bank customer onboarding form. It contains editable fields for customer information and a Bank Identification Number (Bank ID) field that potentially requires interaction with "SiteC" (external reference).
+
+**Key Elements and Interactions:**
+
+*   **Heading:** "Bank Customer Onboarding" (level 1 heading)
+*   **Customer Information Fields (all initially disabled):**
+    *   **Customer Name:**
+        *   Label: "Customer Name:"
+        *   Input (textbox): `customer_name`, value: "John Doe"
+        *   Buttons: `customer_name_edit` (Edit), `customer_name_save` (Save)
+    *   **Date of Birth:**
+        *   Label: "Date of Birth:"
+        *   Input (date): `dob`, value: "1980-01-01"
+        *   Buttons: `dob_edit` (Edit), `dob_save` (Save)
+    *   **Address:**
+        *   Label: "Address:"
+        *   Input (textbox): `address`, value: "123 Main St, Metropolis"
+        *   Buttons: `address_edit` (Edit), `address_save` (Save)
+    *   **Email:**
+        *   Label: "Email:"
+        *   Input (email): `email`, value: "john.doe@example.com"
+        *   Buttons: `email_edit` (Edit), `email_save` (Save)
+    *   **Phone:**
+        *   Label: "Phone:"
+        *   Input (text): `phone`, value: "555-1234"
+        *   Buttons: `phone_edit` (Edit), `phone_save` (Save)
+    *   **Bank Identification Number:**
+        *   Label: "Bank Identification Number:"
+        *   Input (textbox): `bank_id`, value: "XXXXXXXX"
+        *   Buttons: `bank_id_edit` (Edit), `bank_id_submit` (Submit)
+
+*   **Edit/Save/Submit Button Behavior:**
+    *   Clicking the "Edit" button for a field enables the corresponding input field and the "Save" (or "Submit") button.
+    *   Clicking the "Save" (or "Submit") button disables the input field and the "Save" (or "Submit") button.
+
+**Automation Notes:**
+
+*   All input fields are initially disabled.  The "Edit" buttons must be clicked to enable them for input.
+*   The `bank_id_submit` button likely triggers an action involving "SiteC" (not defined in this context).
+*   Consider using element IDs for precise targeting.
+*   The date input is made of spinbuttons for Day, Month and Year.
+
+**Accessibility Information:**
+
+*   The page is structured with appropriate roles (WebArea, heading, text, textbox, button).
+*   Labels are associated with their corresponding input fields.
+*   Disabled states are correctly reflected in the accessibility tree.
+```

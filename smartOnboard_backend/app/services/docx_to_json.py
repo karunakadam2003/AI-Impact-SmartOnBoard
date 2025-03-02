@@ -14,8 +14,11 @@ PASSWORD = os.getenv("PASSWORD")
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-pro')
 
-def docx_to_json(file_path : str):
-    document_path = os.path.join("app", "documents", file_path)
+def docx_to_json(file_path : str, flag = False):
+    if flag:
+        document_path = os.path.join("temp_docs",file_path)
+    else:
+        document_path = os.path.join("app", "documents", file_path)
     document_text = read_word_document_unstructured(document_path)
     if document_text:
         with open("app/documents/docx_to_json_template.txt", "r") as file:
@@ -25,7 +28,9 @@ def docx_to_json(file_path : str):
             kv_pairs = post_process_kv_pairs(gemini_output)
             output_filename = os.path.join("app", "documents","extracted_data.json")
             with open(output_filename, "w") as outfile:
-                json.dump(kv_pairs, outfile, indent=4) 
+                json.dump(kv_pairs, outfile, indent=4)
+                if flag:
+                    return json.dumps(kv_pairs)
 
         else:
             return {"message": "Key-value extraction failed."}

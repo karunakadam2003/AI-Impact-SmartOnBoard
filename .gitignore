@@ -34,3 +34,6 @@ smartOnboard_backend/venv/*
 
 smartOnboard_backend/formData.db-journal
 smartOnboard_backend/formData.db
+
+
+chainlit/venv_chainlit/*

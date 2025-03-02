@@ -1,0 +1,33 @@
+Context Summary for http://localhost:5000/siteb.html
+
+```text
+# Context: Site B - Contact Information (http://localhost:5000/siteb.html)
+
+This page displays contact information for "Jane Smith" and includes fields for Contact Name, Email, Phone, and Office Address. Each field shows a pre-filled value and has corresponding "Edit" and "Save" buttons. Initially, the input fields are disabled, and the "Save" buttons are also disabled.
+
+Clicking the "Edit" button next to each field enables the corresponding input field and the "Save" button, allowing users to modify the data. Clicking the "Save" button disables the input field and the "Save" button again, presumably saving the changes (though this is client-side only in the provided code).
+
+**Key Elements:**
+
+*   **Heading:** "Contact Information"
+*   **Contact Name:**
+    *   Label: "Contact Name:"
+    *   Input (id="contact_name"): "Jane Smith" (initially disabled)
+    *   Button (id="contact_name_edit"): "Edit"
+    *   Button (id="contact_name_save"): "Save" (initially disabled)
+*   **Email:**
+    *   Label: "Email:"
+    *   Input (id="contact_email"): "jane.smith@example.com" (initially disabled)
+    *   Button (id="contact_email_edit"): "Edit"
+    *   Button (id="contact_email_save"): "Save" (initially disabled)
+*   **Phone:**
+    *   Label: "Phone:"
+    *   Input (id="contact_phone"): "555-6789" (initially disabled)
+    *   Button (id="contact_phone_edit"): "Edit"
+    *   Button (id="contact_phone_save"): "Save" (initially disabled)
+*   **Office Address:**
+    *   Label: "Office Address:"
+    *   Input (id="office_address"): "456 Corporate Blvd, Metropolis" (initially disabled)
+    *   Button (id="office_address_edit"): "Edit"
+    *   Button (id="office_address_save"): "Save" (initially disabled)
+```
