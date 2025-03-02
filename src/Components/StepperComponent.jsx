@@ -1,16 +1,43 @@
 import React, { useState } from "react";
 import "./Stepper.css"; // Custom CSS file
+import axios from 'axios';
 
 const Stepper = () => {
     const [step, setStep] = useState(1);
+    const [formData, setFormData] = useState({});
 
     const navigate = (stepNumber) => {
         setStep(stepNumber);
     };
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = async () => {
+        try {
+            // Send the form data to the server
+            await axios.post('http://localhost:8000/saveFormData', {
+                formData
+            });
+            alert('Data saved successfully!');
+        } catch (error) {
+            console.error('Error saving data:', error);
+        }
+    };
+
+    const handleFinish = () => {
+        handleSubmit();
+        navigate(8);
+    }
+
     return (
         <div className="stepper">
-            {/* /* Steps Header */}
+            {/* Steps Header */}
             <div className="steps-container">
                 <div className="steps">
                     {[
@@ -39,13 +66,13 @@ const Stepper = () => {
                 {step === 1 && (
                     <div className="stepper-content">
                         <h3>Client Overview</h3>
-                        <input type="text" placeholder="Client Legal Name" className="form-control" />
-                        <input type="text" placeholder="DBA (Doing Business As)" className="form-control" />
-                        <input type="text" placeholder="Industry" className="form-control" />
-                        <input type="text" placeholder="Business Type" className="form-control" />
-                        <input type="date" placeholder="Date of Incorporation" className="form-control" />
-                        <input type="text" placeholder="Client ID (Internal)" className="form-control" />
-                        <input type="text" placeholder="Relationship Manager" className="form-control" />
+                        <input type="text" name="clientLegalName" placeholder="Client Legal Name" className="form-control" onChange={handleChange} />
+                        <input type="text" name="dba" placeholder="DBA (Doing Business As)" className="form-control" onChange={handleChange} />
+                        <input type="text" name="industry" placeholder="Industry" className="form-control" onChange={handleChange} />
+                        <input type="text" name="businessType" placeholder="Business Type" className="form-control" onChange={handleChange} />
+                        <input type="date" name="dateOfIncorporation" placeholder="Date of Incorporation" className="form-control" onChange={handleChange} />
+                        <input type="text" name="clientId" placeholder="Client ID (Internal)" className="form-control" onChange={handleChange} />
+                        <input type="text" name="relationshipManager" placeholder="Relationship Manager" className="form-control" onChange={handleChange} />
                         <button className="btn next" onClick={() => navigate(2)}>Next</button>
                     </div>
                 )}
@@ -53,13 +80,13 @@ const Stepper = () => {
                 {step === 2 && (
                     <div className="stepper-content">
                         <h3>Contact Information</h3>
-                        <input type="text" placeholder="Primary Contact" className="form-control" />
-                        <input type="text" placeholder="Name" className="form-control" />
-                        <input type="text" placeholder="Title" className="form-control" />
-                        <input type="email" placeholder="Email" className="form-control" />
-                        <input type="number" placeholder="Phone" className="form-control" />
-                        <input type="text" placeholder="Mailing Address" className="form-control" />
-                        <input type="text" placeholder="Physical Address" className="form-control" />
+                        <input type="text" name="primaryContact" placeholder="Primary Contact" className="form-control" onChange={handleChange} />
+                        <input type="text" name="name" placeholder="Name" className="form-control" onChange={handleChange} />
+                        <input type="text" name="title" placeholder="Title" className="form-control" onChange={handleChange} />
+                        <input type="email" name="email" placeholder="Email" className="form-control" onChange={handleChange} />
+                        <input type="number" name="phone" placeholder="Phone" className="form-control" onChange={handleChange} />
+                        <input type="text" name="mailingAddress" placeholder="Mailing Address" className="form-control" onChange={handleChange} />
+                        <input type="text" name="physicalAddress" placeholder="Physical Address" className="form-control" onChange={handleChange} />
                         <div className="button-group">
                             <button className="btn prev" onClick={() => navigate(1)}>Previous</button>
                             <button className="btn next" onClick={() => navigate(3)}>Next</button>
@@ -70,13 +97,13 @@ const Stepper = () => {
                 {step === 3 && (
                     <div className="stepper-content">
                         <h3>Ownership and Legal Structure</h3>
-                        <input type="text" placeholder="Ultimate Beneficial Owner(s) (UBOs)" className="form-control" />
-                        <input type="number" placeholder="Ownership percentage" className="form-control" />
-                        <input type="text" placeholder="Details" className="form-control" />
-                        <input type="text" placeholder="Key Management" className="form-control" />
-                        <input type="text" placeholder="Registered Agent" className="form-control" />
-                        <input type="text" placeholder="State of Incorporation" className="form-control" />
-                        <input type="number" placeholder="Federal Tax ID (EIN)" className="form-control" />
+                        <input type="text" name="ubos" placeholder="Ultimate Beneficial Owner(s) (UBOs)" className="form-control" onChange={handleChange} />
+                        <input type="number" name="ownershipPercentage" placeholder="Ownership percentage" className="form-control" onChange={handleChange} />
+                        <input type="text" name="details" placeholder="Details" className="form-control" onChange={handleChange} />
+                        <input type="text" name="keyManagement" placeholder="Key Management" className="form-control" onChange={handleChange} />
+                        <input type="text" name="registeredAgent" placeholder="Registered Agent" className="form-control" onChange={handleChange} />
+                        <input type="text" name="stateOfIncorporation" placeholder="State of Incorporation" className="form-control" onChange={handleChange} />
+                        <input type="number" name="federalTaxId" placeholder="Federal Tax ID (EIN)" className="form-control" onChange={handleChange} />
                         <div className="button-group">
                             <button className="btn prev" onClick={() => navigate(2)}>Previous</button>
                             <button className="btn next" onClick={() => navigate(4)}>Next</button>
@@ -87,15 +114,15 @@ const Stepper = () => {
                 {step === 4 && (
                     <div className="stepper-content">
                         <h3>Financial Information</h3>
-                        <input type="text" placeholder="Annual Revenue (Most Recent Year)" className="form-control" />
-                        <input type="text" placeholder="Net Income (Most Recent Year)" className="form-control" />
-                        <input type="number" placeholder="Number of Employees" className="form-control" />
-                        <input type="text" placeholder="Primary Bank (Currently)" className="form-control" />
-                        <input type="text" placeholder="Purpose of Account" className="form-control" />
-                        <input type="text" placeholder="Anticipated Monthly Transaction Volume" className="form-control" />
-                        <input type="text" placeholder="Credits" className="form-control" />
-                        <input type="text" placeholder="Debits" className="form-control" />
-                        <input type="text" placeholder="International Transactions" className="form-control" />
+                        <input type="text" name="annualRevenue" placeholder="Annual Revenue (Most Recent Year)" className="form-control" onChange={handleChange} />
+                        <input type="text" name="netIncome" placeholder="Net Income (Most Recent Year)" className="form-control" onChange={handleChange} />
+                        <input type="number" name="numberOfEmployees" placeholder="Number of Employees" className="form-control" onChange={handleChange} />
+                        <input type="text" name="primaryBank" placeholder="Primary Bank (Currently)" className="form-control" onChange={handleChange} />
+                        <input type="text" name="purposeOfAccount" placeholder="Purpose of Account" className="form-control" onChange={handleChange} />
+                        <input type="text" name="monthlyTransactionVolume" placeholder="Anticipated Monthly Transaction Volume" className="form-control" onChange={handleChange} />
+                        <input type="text" name="credits" placeholder="Credits" className="form-control" onChange={handleChange} />
+                        <input type="text" name="debits" placeholder="Debits" className="form-control" onChange={handleChange} />
+                        <input type="text" name="internationalTransactions" placeholder="International Transactions" className="form-control" onChange={handleChange} />
                         <div className="button-group">
                             <button className="btn prev" onClick={() => navigate(3)}>Previous</button>
                             <button className="btn next" onClick={() => navigate(5)}>Next</button>
@@ -106,10 +133,10 @@ const Stepper = () => {
                 {step === 5 && (
                     <div className="stepper-content">
                         <h3>Regulatory and Compliance</h3>
-                        <input type="text" placeholder="AML/KYC Compliance" className="form-control" />
-                        <input type="text" placeholder="OFAC Screening" className="form-control" />
-                        <input type="text" placeholder="Industry-Specific Regulations" className="form-control" />
-                        <input type="text" placeholder="Licenses and Permits" className="form-control" />
+                        <input type="text" name="amlKycCompliance" placeholder="AML/KYC Compliance" className="form-control" onChange={handleChange} />
+                        <input type="text" name="ofacScreening" placeholder="OFAC Screening" className="form-control" onChange={handleChange} />
+                        <input type="text" name="industrySpecificRegulations" placeholder="Industry-Specific Regulations" className="form-control" onChange={handleChange} />
+                        <input type="text" name="licensesAndPermits" placeholder="Licenses and Permits" className="form-control" onChange={handleChange} />
                         <div className="button-group">
                             <button className="btn prev" onClick={() => navigate(4)}>Previous</button>
                             <button className="btn next" onClick={() => navigate(6)}>Next</button>
@@ -120,12 +147,12 @@ const Stepper = () => {
                 {step === 6 && (
                     <div className="stepper-content">
                         <h3>Banking Services Requested</h3>
-                        <input type="text" placeholder="Checking Account(s)" className="form-control" />
-                        <input type="text" placeholder="Online Banking" className="form-control" />
-                        <input type="text" placeholder="Wire Transfers" className="form-control" />
-                        <input type="text" placeholder="ACH Origination" className="form-control" />
-                        <input type="text" placeholder="Remote Deposit Capture (RDC)" className="form-control" />
-                        <input type="text" placeholder="Lockbox Services (Potential Future Need)" className="form-control" />
+                        <input type="text" name="checkingAccounts" placeholder="Checking Account(s)" className="form-control" onChange={handleChange} />
+                        <input type="text" name="onlineBanking" placeholder="Online Banking" className="form-control" onChange={handleChange} />
+                        <input type="text" name="wireTransfers" placeholder="Wire Transfers" className="form-control" onChange={handleChange} />
+                        <input type="text" name="achOrigination" placeholder="ACH Origination" className="form-control" onChange={handleChange} />
+                        <input type="text" name="rdc" placeholder="Remote Deposit Capture (RDC)" className="form-control" onChange={handleChange} />
+                        <input type="text" name="lockboxServices" placeholder="Lockbox Services (Potential Future Need)" className="form-control" onChange={handleChange} />
                         <div className="button-group">
                             <button className="btn prev" onClick={() => navigate(5)}>Previous</button>
                             <button className="btn next" onClick={() => navigate(7)}>Next</button>
@@ -136,10 +163,10 @@ const Stepper = () => {
                 {step === 7 && (
                     <div className="stepper-content">
                         <h3>Important Notes</h3>
-                        <input type="text" placeholder="Lockbox Services (Potential Future Need)" className="form-control" />
+                        <input type="text" name="importantNotes" placeholder="Important Notes" className="form-control" onChange={handleChange} />
                         <div className="button-group">
                             <button className="btn prev" onClick={() => navigate(6)}>Previous</button>
-                            <button className="btn next" onClick={() => navigate(8)}>Finish</button>
+                            <button className="btn next" onClick={handleFinish}>Finish</button>
                         </div>
                     </div>
                 )}
