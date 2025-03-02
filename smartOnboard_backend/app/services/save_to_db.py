@@ -1,5 +1,10 @@
+import random
 import sqlite3
 from fastapi.responses import JSONResponse
+
+def generate_unique_id():
+    unique_id = random.randint(10000000, 99999999)
+    return unique_id
 
 def save_form_data(data2: dict):
     print(data2)
@@ -48,7 +53,8 @@ def save_form_data(data2: dict):
                         ach_origination TEXT,
                         remote_deposit_capture TEXT,
                         lockbox_services TEXT,
-                        important_notes TEXT)''')
+                        important_notes TEXT,
+                        ref_id INTEGER)''')
     try:
         cursor.execute('''INSERT INTO formdata (
             client_legal_name, dba, industry, business_type, date_of_incorporation, client_id, relationship_manager,
@@ -57,8 +63,8 @@ def save_form_data(data2: dict):
             federal_tax_id, annual_revenue, net_income, number_of_employees, primary_bank, purpose_of_account,
             anticipated_monthly_transaction_volume, credits, debits, international_transactions, aml_kyc_compliance,
             ofac_screening, industry_specific_regulations, licenses_and_permits, checking_accounts, online_banking,
-            wire_transfers, ach_origination, remote_deposit_capture, lockbox_services, important_notes)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', (
+            wire_transfers, ach_origination, remote_deposit_capture, lockbox_services, important_notes, ref_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', (
             data2.get("clientLegalName"), data2.get("dba"), data2.get("industry"), data2.get("businessType"),
             data2.get("dateOfIncorporation"), data2.get("clientId"), data2.get("relationshipManager"),
             data2.get("primaryContact"), data2.get("name"), data2.get("title"), data2.get("email"), data2.get("phone"),
@@ -71,7 +77,7 @@ def save_form_data(data2: dict):
             data2.get("internationalTransactions"), data2.get("amlKycCompliance"), data2.get("ofacScreening"),
             data2.get("industrySpecificRegulations"), data2.get("licensesAndPermits"), data2.get("checkingAccounts"),
             data2.get("onlineBanking"), data2.get("wireTransfers"), data2.get("achOrigination"), data2.get("rdc"),
-            data2.get("lockboxServices"), data2.get("importantNotes")
+            data2.get("lockboxServices"), data2.get("importantNotes"), generate_unique_id()
         ))
         conn.commit()
         conn.close()
