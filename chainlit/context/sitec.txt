@@ -1,0 +1,26 @@
+Context Summary for http://localhost:5000/sitec.html
+
+```text
+URL: http://localhost:5000/sitec.html
+
+Context: Transaction Lookup application. Allows users to enter a transaction number and view transaction details.
+
+Key Elements:
+
+*   **Heading:** "Transaction Lookup" (level 1 heading)
+*   **Input Field:**  Labeled "Enter Transaction Number:" (id: `txn_lookup`).  Accepts text input.
+*   **Submit Button:** Labeled "Submit" (id: `txn_lookup_submit`).  Triggers transaction lookup.
+*   **Transaction Details Area:**  `div` element with id `txn_result`. Displays transaction details after submission. Initially empty.
+
+Functionality:
+
+1.  User enters a transaction number in the "Enter Transaction Number:" field.
+2.  User clicks the "Submit" button.
+3.  The application (simulated in this example) displays transaction details in the "Transaction Details:" area.  If the input field is empty, an error message ("Please enter a valid transaction number.") is displayed.  Otherwise, simulated transaction data is shown including transaction number, amount, bank identification number, date and status.
+
+Accessibility:
+
+*   Clear labels are provided for the input field.
+*   Button is clearly labeled "Submit."
+*   Transaction details are displayed in a designated area.
+```
