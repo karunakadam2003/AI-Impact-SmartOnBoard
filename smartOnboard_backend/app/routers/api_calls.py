@@ -4,6 +4,7 @@ from app.services.docx_to_json import docx_to_json, read_word_document_unstructu
 from app.services.agent_plan import agent_plan
 from app.services.payment_fix import payment_fix
 from app.services.save_to_db import save_form_data
+from app.services.retrieve_from_db import retrieve_from_db
 from fastapi.responses import JSONResponse
 
 
@@ -55,3 +56,6 @@ async def upload_docx(file: UploadFile = File(...)):
 async def save_form_data_endpoint(data: dict = Body(...)):
     return save_form_data(data.get('formData'))
 
+@router.get("/retrieveFormData")
+async def retrieve_form_data():
+    return retrieve_from_db()

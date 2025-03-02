@@ -39,3 +39,6 @@ smartOnboard_backend/formData.db
 chainlit/venv_chainlit/*
 chainlit/.chainlit/*
 chainlit/.files/*
+/chainlit/venv
+/chainlit/chainlit_venv
+chainlit/.env
