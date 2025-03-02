@@ -2,7 +2,7 @@
 
 1. Create a .env file and fill in credential values - 
     GENAI_API_KEY = ""
-    CHAINLIT_AUTH_SECRET = ""
+    CHAINLIT_AUTH_SECRET = "" (run "chainlit create-secret" to generate)
     MONGODB_URI= ""
 
 2. Create a virtual environment (optional but recommended):
