@@ -7,8 +7,6 @@ from typing import Optional, Type
 from dotenv import load_dotenv
 
 load_dotenv()
-# if not os.environ.get("MONGODB_URI"):
-#     os.environ["MONGODB_URI"] = ""
 
 class MongoDBQueryInput(BaseModel):
     query: str = Field(..., description="Natural language query to perform on MongoDB")

@@ -79,7 +79,7 @@ const Stepper = () => {
                         <input type="text" name="dba" placeholder="DBA (Doing Business As)" className="form-control" onChange={handleChange} />
                         <input type="text" name="industry" placeholder="Industry" className="form-control" onChange={handleChange} />
                         <input type="text" name="businessType" placeholder="Business Type" className="form-control" onChange={handleChange} />
-                        <input type="date" name="dateOfIncorporation" placeholder="Date of Incorporation" className="form-control" onChange={handleChange} />
+                        <input type="text" name="dateOfIncorporation" placeholder="Date of Incorporation" className="form-control" onChange={handleChange} />
                         <input type="text" name="clientId" placeholder="Client ID (Internal)" className="form-control" onChange={handleChange} />
                         <input type="text" name="relationshipManager" placeholder="Relationship Manager" className="form-control" onChange={handleChange} />
                         <button className="btn next" onClick={() => navigate(2)}>Next</button>
@@ -107,7 +107,7 @@ const Stepper = () => {
                     <div className="stepper-content">
                         <h3>Ownership and Legal Structure</h3>
                         <input type="text" name="ubos" placeholder="Ultimate Beneficial Owner(s) (UBOs)" className="form-control" onChange={handleChange} />
-                        <input type="number" name="ownershipPercentage" placeholder="Ownership percentage" className="form-control" onChange={handleChange} />
+                        <input type="text" name="ownershipPercentage" placeholder="Ownership percentage" className="form-control" onChange={handleChange} />
                         <input type="text" name="details" placeholder="Details" className="form-control" onChange={handleChange} />
                         <input type="text" name="keyManagement" placeholder="Key Management" className="form-control" onChange={handleChange} />
                         <input type="text" name="registeredAgent" placeholder="Registered Agent" className="form-control" onChange={handleChange} />
@@ -125,7 +125,7 @@ const Stepper = () => {
                         <h3>Financial Information</h3>
                         <input type="text" name="annualRevenue" placeholder="Annual Revenue (Most Recent Year)" className="form-control" onChange={handleChange} />
                         <input type="text" name="netIncome" placeholder="Net Income (Most Recent Year)" className="form-control" onChange={handleChange} />
-                        <input type="number" name="numberOfEmployees" placeholder="Number of Employees" className="form-control" onChange={handleChange} />
+                        <input type="text" name="numberOfEmployees" placeholder="Number of Employees" className="form-control" onChange={handleChange} />
                         <input type="text" name="primaryBank" placeholder="Primary Bank (Currently)" className="form-control" onChange={handleChange} />
                         <input type="text" name="purposeOfAccount" placeholder="Purpose of Account" className="form-control" onChange={handleChange} />
                         <input type="text" name="monthlyTransactionVolume" placeholder="Anticipated Monthly Transaction Volume" className="form-control" onChange={handleChange} />
@@ -184,7 +184,8 @@ const Stepper = () => {
                     <div className="stepper-content">
                         <h3>Finish</h3>
                         <p>🎉 Congratulations! You have completed the process.</p>
-                        <button className="btn prev">Send confirmation email</button>
+                        <button className="btn prev" onClick={() => navigate(3)}>Previous</button>
+                        <button className="btn next" onClick={handleFinish}>Finish</button>
                     </div>
                 )}
             </div>

@@ -14,6 +14,8 @@ load_dotenv()
 llm = ChatGoogleGenerativeAI(model='gemini-2.0-flash', api_key=SecretStr(os.getenv('GEMINI_API_KEY')))
 llm_lite = ChatGoogleGenerativeAI(model='gemini-2.0-flash-thinking-exp-01-21', api_key=SecretStr(os.getenv('GEMINI_API_KEY')))
 
+async def send_message(content:str):
+     await cl.Message(content = content).send()
 
 def load_file_content(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -38,7 +40,7 @@ async def clarification_agent(query:str):
     prompt_template = ChatPromptTemplate.from_template("""
     You are a Transformation Agent for Browser Automation. 
     You will be given a JSON string data containing various key values. Your task is to use the provided context and input, generate a detailed, step-by-step plan that a browser automation agent can execute flawlessly.
-
+    Remember certain Json keys might not be present on the website and must be skipped.Do not fill any input with random or placeholder values.
     Before you generate the final plan, you must ensure that all necessary details are unambiguous. Follow these instructions:
 
     1. Process the user input and the provided context. Identify the main goal, required actions, and any references to specific webpage elements.
@@ -97,7 +99,7 @@ async def clarification_agent(query:str):
             break
 
     if clarification_rounds >= 3 and is_clarification(response):
-        cl.send_message("Maximum clarification rounds reached. Proceeding with best assumptions.")
+        send_message("Maximum clarification rounds reached. Proceeding with best assumptions.")
         final_response = chain.invoke({"query": current_input, "context":context})
 
     print("output: " + final_response)
