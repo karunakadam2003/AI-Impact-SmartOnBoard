@@ -131,7 +131,11 @@ class ReactAgent(BaseAgent):
         await task_list.send()
         
         # Set up our callback handler to create Steps
-        callback_handler = ChainlitStepsCallbackHandler()
+        callback_handler = cl.LangchainCallbackHandler(to_keep=["retriever", "agent", "chain", "tool"], to_ignore=["RunnableSequence",
+        "RunnableParallel",
+        "RunnableAssign",
+        "RunnableLambda",
+        "<lambda>", "llm"])
         
         try:
             # Run agent with callbacks for Steps

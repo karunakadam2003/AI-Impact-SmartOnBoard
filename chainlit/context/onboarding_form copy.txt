@@ -15,8 +15,12 @@ Context Summary for http://localhost:3000/onboarding
 *   **Stepper:** A visual progress indicator with the following steps:
 
     *   Client Overview (Active Step)
+    *   Contact Information
     *   Ownership and Legal Structure
     *   Financial Information
+    *   Regulatory and Compliance
+    *   Banking Services Requested
+    *   Important Notes
     *   Finish
 *   **Form Fields (Client Overview - Active Step):**
 
@@ -24,9 +28,19 @@ Context Summary for http://localhost:3000/onboarding
     *   DBA (Doing Business As) (textbox)
     *   Industry (textbox)
     *   Business Type (textbox)
-    *   Date of Incorporation (textbox)
+    *   Date of Incorporation (date picker: dd-mm-yyyy)
     *   Client ID (Internal) (textbox)
     *   Relationship Manager (textbox)
+
+*   **Form Fields (Contact Information):**
+
+    *   Primary Contact (textbox)
+    *   Name (textbox)
+    *   Title (textbox)
+    *   Email (textbox)
+    *   Phone (number)
+    *   Mailing Address (textbox)
+    *   Physical Address (textbox)
 
 *   **Form Fields (Ownership and Legal Structure):**
 
@@ -50,6 +64,25 @@ Context Summary for http://localhost:3000/onboarding
     *   Debits (textbox)
     *   International Transactions (textbox)
 
+*   **Form Fields (Regulatory and Compliance):**
+
+    *   AML/KYC Compliance (textbox)
+    *   OFAC Screening (textbox)
+    *   Industry-Specific Regulations (textbox)
+    *   Licenses and Permits (textbox)
+
+*   **Form Fields (Banking Services Requested):**
+
+    *   Checking Account(s) (textbox)
+    *   Online Banking (textbox)
+    *   Wire Transfers (textbox)
+    *   ACH Origination (textbox)
+    *   Remote Deposit Capture (RDC) (textbox)
+    *   Lockbox Services (Potential Future Need) (textbox)
+
+*   **Form Fields (Important Notes):**
+
+    *   Lockbox Services (Potential Future Need) (textbox)
 
 *   **Form Fields (Finish):**
 
@@ -69,7 +102,7 @@ Context Summary for http://localhost:3000/onboarding
 1.  The user lands on the SmartOnBoarding page.
 2.  The user sees the "Client Overview" step is active.
 3.  The user interacts with the input fields to input client information.
-4.  The user clicks the "Next" button to advance to the "Ownership and Legal Structure" step, and so on.
+4.  The user clicks the "Next" button to advance to the "Contact Information" step, and so on.
 
 **Accessibility Notes:**
 
@@ -82,3 +115,10 @@ Context Summary for http://localhost:3000/onboarding
 *   Locate and interact with the stepper elements to verify the current step.
 *   Locate and input text into the various form fields using their labels or ARIA labels.
 *   Click the "Next" button to advance through the onboarding steps.
+
+
+**Localization Notes:**
+
+*   The page offers a link to switch to the Spanish version ("Espa�ol").
+*   Ensure that the text and labels are correctly localized for different languages.
+```

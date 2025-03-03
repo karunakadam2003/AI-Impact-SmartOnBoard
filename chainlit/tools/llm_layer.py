@@ -8,9 +8,6 @@ from prompts import prompts_templates
 from dotenv import load_dotenv
 load_dotenv()
 
-if not os.environ.get("GEMINI_API_KEY"):
-    os.environ["GEMINI_API_KEY"] = "AIzaSyB7wUgoMfnpiuxkd38jbFL1yw2cyiDBEiQ"
-
 llm = ChatGoogleGenerativeAI(model='gemini-2.0-flash', api_key=SecretStr(os.getenv('GEMINI_API_KEY')))
 llm_lite = ChatGoogleGenerativeAI(model='gemini-2.0-flash-thinking-exp-01-21', api_key=SecretStr(os.getenv('GEMINI_API_KEY')))
 

@@ -7,9 +7,6 @@ from pydantic import SecretStr
 load_dotenv()
 
 
-# if not os.environ.get("GEMINI_API_KEY"):
-#     os.environ["GEMINI_API_KEY"] = ""
-    
 class BaseAgent:
     """Base agent class for different chat profiles"""
     

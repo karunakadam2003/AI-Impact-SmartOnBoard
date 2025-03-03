@@ -8,7 +8,7 @@ from tools import browser_agent, llm_layer, onboarding_pipeline
 import requests
 from agents.rm_agent import ConversationalAgent
 from agents.react_agent import ReactAgent
-from templates.personas import STANDARD_PERSONA, RM_PERSONA
+from prompts.personas import STANDARD_PERSONA, RM_PERSONA
 
 
 
@@ -135,6 +135,8 @@ async def on_chat_start():
                 asyncio.run(browser_agent.browser_agent_task(plan_of_action))
                 
                 await send_message(content = f"Completed the task!!")
+                response = requests.get("http://localhost:8000/retrieveFormData")
+                await send_message(content = f"Your Onboarding reference number : {response.json()}")
                 
             elif action_message and action_message.get("payload", {}).get("value") == "cancel":
                 await send_message(content="Plan execution cancelled.")
@@ -217,9 +219,6 @@ async def on_message(message: cl.Message):
             
         elif action_message and action_message.get("payload", {}).get("value") == "cancel":
             await send_message(content="Plan execution cancelled.")
-
-    elif "hello" in content:
-       await send_message(content = "Hi Nikhil, how may I help you today?")
 
     else:
         # Regular message - use current profile
