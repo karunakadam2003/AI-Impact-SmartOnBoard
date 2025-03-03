@@ -1,12 +1,15 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 import chainlit as cl
 from pydantic import SecretStr
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.schema import StrOutputParser
-import os
+
 from prompts import prompts_templates
-from dotenv import load_dotenv
-load_dotenv()
+
 
 llm = ChatGoogleGenerativeAI(model='gemini-2.0-flash', api_key=SecretStr(os.getenv('GEMINI_API_KEY')))
 llm_lite = ChatGoogleGenerativeAI(model='gemini-2.0-flash-thinking-exp-01-21', api_key=SecretStr(os.getenv('GEMINI_API_KEY')))

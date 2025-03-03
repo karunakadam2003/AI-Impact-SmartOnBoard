@@ -6,7 +6,7 @@ from typing import Dict, Any, List
 import uuid
 
 from agents.base_agent import BaseAgent
-from tools.mongodb_tool import MongoDBTool
+# from tools.mongodb_tool import MongoDBTool
 from tools.web_search_tool import FinanceWebSearchTool
 from tools.wiki_search import WikipediaSearchTool
 
@@ -69,7 +69,7 @@ class ReactAgent(BaseAgent):
     ):
         super().__init__(persona, model_name, temperature)
         self.tools = [
-            MongoDBTool(),
+            # MongoDBTool(),
             FinanceWebSearchTool(),
             WikipediaSearchTool()
         ]

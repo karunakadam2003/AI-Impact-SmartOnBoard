@@ -1,12 +1,13 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 import json
 from langchain_google_genai import ChatGoogleGenerativeAI
 import chainlit as cl
 from pydantic import SecretStr
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.schema import StrOutputParser
-import os
-from dotenv import load_dotenv
-load_dotenv()
+
 
 # if not os.environ.get("GEMINI_API_KEY"):
 #     os.environ["GEMINI_API_KEY"] = ""
