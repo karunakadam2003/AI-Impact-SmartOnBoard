@@ -7,11 +7,9 @@ import chainlit as cl
 from pydantic import SecretStr
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.schema import StrOutputParser
-
 from utils.cl_utils import send_message
 from utils.key_fetcher import KeyFetcher, parse_key_fetching_instructions
 import requests
-
 
 # if not os.environ.get("GEMINI_API_KEY"):
 #     os.environ["GEMINI_API_KEY"] = ""

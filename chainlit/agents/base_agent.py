@@ -1,10 +1,12 @@
 import os
 from dotenv import load_dotenv
+load_dotenv()
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.memory import ConversationBufferMemory
 from typing import List, Dict, Any, Optional
 from pydantic import SecretStr
-load_dotenv()
+
 
 
 class BaseAgent:

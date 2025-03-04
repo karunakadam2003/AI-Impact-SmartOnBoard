@@ -1,11 +1,13 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 from langchain_google_genai import ChatGoogleGenerativeAI
 from pydantic import SecretStr
 from browser_use import Agent, Browser, BrowserConfig, Controller
 import asyncio
-import os
-from dotenv import load_dotenv
+
 from browser_use.browser.context import BrowserContextConfig, BrowserContext
-load_dotenv()
+
 # from lmnr import Laminar
 
 # Laminar.initialize(project_api_key="icceOt56t9x9zHHTLkR7kfK4NtwOyvvvU08WyOwnKrQ1dsADXaL2lLJH0XsJIZG5")
