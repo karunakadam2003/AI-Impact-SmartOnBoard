@@ -102,7 +102,7 @@ async def clarification_agent(query:str):
 
         if is_clarification(response):
             # If a clarifying question is produced, ask the user via Chainlit UI
-            clarifying_answer = await cl.AskUserMessage(content=response).send()
+            clarifying_answer = await cl.AskUserMessage(content=response,timeout=300).send()
             print(clarifying_answer)
             additional_context += response + "\n" + clarifying_answer['output']
             clarification_rounds += 1
