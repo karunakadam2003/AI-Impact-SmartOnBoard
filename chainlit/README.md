@@ -3,8 +3,10 @@
 1. Create a .env file and fill in credential values - 
     GENAI_API_KEY = ""
     CHAINLIT_AUTH_SECRET = "" (run "chainlit create-secret" to generate)
-    MONGODB_URI= ""
-
+    MONGODB_URI= "mongodb+srv://admin:admin@cluster0.15knf.mongodb.net/"
+    MONGODB_DATABASE=SmartOnboard
+    MONGODB_COLLECTION=Company_Finance
+    
 2. Create a virtual environment (optional but recommended):
     python -m venv venv
     On Windows use `venv\Scripts\activate`
