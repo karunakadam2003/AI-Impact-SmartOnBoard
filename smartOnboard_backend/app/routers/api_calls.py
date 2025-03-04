@@ -1,4 +1,6 @@
-from fastapi import APIRouter, Body, Request, UploadFile, File
+from typing import List
+from fastapi import APIRouter, Body, HTTPException, Request, UploadFile, File
+from pydantic import BaseModel, Field
 from app.services.hello_service import get_hello_message
 from app.services.docx_to_json import docx_to_json, read_word_document_unstructured
 from app.services.agent_plan import agent_plan
@@ -59,3 +61,49 @@ async def save_form_data_endpoint(data: dict = Body(...)):
 @router.get("/retrieveFormData")
 async def retrieve_form_data():
     return retrieve_from_db()
+
+MOCK_UBO_DATABASE = {
+    "ABC Manufacturing, Inc.": {
+        "uboNames": ["Emily Johnson"],
+        "industries": ["Light Manufacturing (Specialty Metal Components)"]
+    },
+    "Nima Consultancy": {
+        "uboNames": ["Sarah Rodriguez"],
+        "industries": ["Consulting"]
+    }
+}
+
+class UBOVerificationRequest(BaseModel):
+
+    Client_Legal_Name: str = Field(alias='Client Legal Name')
+    Industry: str
+
+class UBOResponse(BaseModel):
+    client_name: str
+    ubo_names: List[str]
+    verified: bool
+
+@router.post("/ubo-verification", response_model=UBOResponse)
+async def verify_ubo(request: UBOVerificationRequest):
+    client_name = request.Client_Legal_Name
+    industry = request.Industry
+
+    print('client_name:', client_name)
+    print('industry:', industry)
+    # Check if client exists in mock database
+    if client_name not in MOCK_UBO_DATABASE:
+        raise HTTPException(status_code=404, detail="Client not found")
+
+    print('ubo_info:', MOCK_UBO_DATABASE[client_name])
+    # Retrieve UBO information
+    ubo_info = MOCK_UBO_DATABASE[client_name]
+    
+    # Industry verification with more flexible matching
+    if industry and industry not in ubo_info.get('industries', []):
+        raise HTTPException(status_code=400, detail="Industry verification failed")
+    
+    return UBOResponse(
+        client_name=client_name,
+        ubo_names=ubo_info['uboNames'],
+        verified=True
+    )

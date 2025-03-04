@@ -1,6 +1,8 @@
 import asyncio
 import os
 from dotenv import load_dotenv
+
+from utils.cl_utils import send_message
 load_dotenv()
 
 import chainlit as cl
@@ -14,7 +16,7 @@ from prompts.personas import STANDARD_PERSONA, RM_PERSONA
 
 commands = [
     {"id": "Browser", "icon": "bot", "description": "Assistant will automate the browser task"},
-    {"id": "React", "icon": "bot", "description": "ReAct agent to handle user queries with specialized tools"},
+    {"id": "Reason", "icon": "bot", "description": "ReAct agent to handle user queries with specialized tools"},
     {"id": "Who", "icon": "bot", "description": "Get information about the AI assistant"},
 ]
 
@@ -38,8 +40,6 @@ async def chat_profile():
         ),
     ]
 
-async def send_message(content:str):
-     await cl.Message(content = content).send()
 
 @cl.password_auth_callback
 def auth_callback(username: str, password: str):
@@ -65,68 +65,33 @@ async def on_chat_start():
         content="👋 Hello! I'm your AI assistant. Choose a profile from the settings menu above.\n\n"
                 "- Onboarding Assitant: Customer Onboarding made easy! \n"
                 "- Relationship Manager: Banking relationship manager persona\n\n"
-                "You can also use the command `/react` followed by your query to access specialized tools for database queries and financial web searches. The React agent will show you its chain of thought reasoning!"
+                "You can also use the command `/reason` followed by your query to access specialized tools for database queries and financial web searches. The React agent will show you its chain of thought reasoning!"
     ).send()
 
     chat_profile = cl.user_session.get("chat_profile")
     if chat_profile == "Onboarding Assistant":
         cl.user_session.set("current_agent", "standard")
+        await send_message(content=f"Hello {app_user.identifier.capitalize()}, I'm your Onboarding Assistant.")
         action_message = await cl.AskActionMessage(
         content= "Do you want to get started with the new Onboarding process",
         actions=[
-            cl.Action(name="Execute it", payload={"value": "continue"}, label="✅ Lets get started!!"),
-            cl.Action(name="Cancel", payload={"value": "cancel"}, label="❌ Later/Already started"),
+                    cl.Action(name="Execute it", payload={"value": "continue"}, label="✅ Lets get started!!"),
+                    cl.Action(name="Cancel", payload={"value": "cancel"}, label="❌ Later/Already started"),
                 ],
+        timeout=300,
             ).send()
         if action_message and action_message.get("payload", {}).get("value") == "continue":
-            files = None
+            
+            plan_of_action = await onboarding_pipeline.execute_pipeline()
 
-            # Wait for the user to upload a file
-            while files == None:
-                files = await cl.AskFileMessage(
-                    content="Alright, Lets start with uploading the document file", accept=["application/vnd.openxmlformats-officedocument.wordprocessingml.document"]
-                ).send()
-
-            text_file = files[0]
-            path = text_file.path
-            path2=os.path.abspath(text_file.path)
-
-            print(path2)
-            print(cl.user_session.get("id"))
-
-            url = "http://localhost:8000/upload"
-
-            # Path to the local .docx file to send
-            file_path = text_file.path
-
-            # Open the file in binary mode and send it as a multipart/form-data request
-            with open(file_path, "rb") as f:
-                files = {
-                    "file": (
-                        text_file.name,
-                        f,
-                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                    )
-                }
-                response = requests.post(url, files=files)
-                # print("Response:", response.json())
-
-
-            # Let the user know that the system is ready
-            await cl.Message(
-                content=f"`{text_file.name}` uploaded, Extracting information and generating Automation plan"
-            ).send()
-
-            plan_of_action = await onboarding_pipeline.clarification_agent(response.json())
-            poa = await onboarding_pipeline.format_plan_of_action(plan_of_action)
-            await send_message(content = poa)
-
+            await send_message(content= "If you are satisfied by the generated plan then should we go ahead?")
             action_message = await cl.AskActionMessage(
-                content= "If you are satisfied by the generated plan then should we go ahead?",
+                content= "",
                 actions=[
                     cl.Action(name="Execute it", payload={"value": "continue"}, label="✅ Execute It!!"),
                     cl.Action(name="Cancel", payload={"value": "cancel"}, label="❌ Cancel"),
                 ],
+                timeout=300,
             ).send()
 
             if action_message and action_message.get("payload", {}).get("value") == "continue":
@@ -208,6 +173,7 @@ async def on_message(message: cl.Message):
                 cl.Action(name="Execute it", payload={"value": "continue"}, label="✅ Execute It!!"),
                 cl.Action(name="Cancel", payload={"value": "cancel"}, label="❌ Cancel"),
             ],
+            timeout=300,
         ).send()
 
         if action_message and action_message.get("payload", {}).get("value") == "continue":
