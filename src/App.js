@@ -2,6 +2,7 @@ import React from "react";
 import StepperComponent from "./Components/StepperComponent";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./Components/Stepper.css"
+import FloatingChatButton from "./Components/FloatingChatButton";
 // import "./Stepper.css"; // Custom CSS file
 
 
@@ -1248,6 +1249,7 @@ function App() {
                         </div>
                         <div />
                     </div>
+                        <FloatingChatButton />
                 </main>
 
 
