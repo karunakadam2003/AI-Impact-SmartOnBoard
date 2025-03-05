@@ -14,7 +14,7 @@
 - Description: Defines who are the UBOs for the organization in question 
 - Priority: Medium
 - Required Fields: ["Client Legal Name", "Industry"]
-- Task Description: Extracting the value using "Client Legal Name" via an API Call
+- Task Description: Extracting the information about "Client Legal Name" by fetching it from Client Insights API
 - Fetch Method: API
 - Fetch Instructions:
   1. Use the client's legal name "{Client Legal Name}"
@@ -25,7 +25,7 @@
 - Description: defines the expected amount of transaction per month in USD
 - Priority: Medium
 - Required Fields: ["Client Legal Name", "Federal Tax ID (EIN)"]
-- Task Description: Extracting the value using "Client Legal Name" by fetching it from database
+- Task Description: Extracting the information about "Client Legal Name" by fetching it from WCIS (Wholesale Customer Information System)
 - Fetch Method: MongoDB
 - Fetch Instructions:
   1. Generate a query using the required fileds i.e. "{Client Legal Name}" and "{Federal Tax ID (EIN)}"

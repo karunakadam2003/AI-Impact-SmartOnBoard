@@ -1,3 +1,4 @@
+import asyncio
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -96,10 +97,13 @@ async def fetch_missing_key(fetch_request, input_json):
         await send_message(f"No fetch instructions found for key: {key_name}")
         return key_name, None
     
+    icon="info"
+    if (key_config.get('Fetch Method', 'ui').lower() =="mongodb"): icon ="database"
+    elif(key_config.get('Fetch Method', 'ui').lower() =="api"): icon ="waypoints"
     # Ask for user permission
     await send_message(f"The system needs to fetch the missing value for '{key_name}'.",
                        actions=[
-                           cl.Action(name="Show Info",icon= "info", payload={"value": "Show Task Description"}, tooltip=key_config.get("Task Description"))
+                           cl.Action(name="Show Info", icon=icon, payload={"value": "Show Task Description"}, tooltip=key_config.get("Task Description"))
                        ])
 
     action_message = await cl.AskActionMessage(
@@ -112,9 +116,10 @@ async def fetch_missing_key(fetch_request, input_json):
             ).send()
 
     if action_message and action_message.get("payload", {}).get("value") == "continue":
+ 
         await send_message(content = f"Fetching the key value for '{key_name}'....",
                        actions=[
-                           cl.Action(name="Show Info",icon= "info", payload={"value": "Show Steps"}, tooltip=key_config.get("Fetch Instructions"," "))
+                           cl.Action(name="Show Info",icon= icon, payload={"value": "Show Steps"}, tooltip=key_config.get("Fetch Instructions"," "))
                        ])
 
         
@@ -124,6 +129,7 @@ async def fetch_missing_key(fetch_request, input_json):
             
             if fetched_value:
                 await send_message(f"Successfully fetched value for '{key_name}'")
+                await asyncio.sleep(2)
                 return key_name, fetched_value
             else:
                 await send_message(f"Failed to fetch value for '{key_name}'")

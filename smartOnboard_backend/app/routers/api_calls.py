@@ -70,6 +70,10 @@ MOCK_UBO_DATABASE = {
     "Nima Consultancy": {
         "uboNames": ["Sarah Rodriguez"],
         "industries": ["Consulting"]
+    },
+    "Google LLC": {
+        "uboNames": ["Alphabet Inc. Board of Director"],
+        "industries": ["Technology and Internet Services"]
     }
 }
 

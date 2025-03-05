@@ -4,7 +4,8 @@ import os
 import wave
 from dotenv import load_dotenv
 
-from utils.cl_utils import send_message
+from utils.animation_styles import AnimationStyles
+from utils.cl_utils import send_animated_message, send_message
 load_dotenv()
 
 import chainlit as cl
@@ -104,11 +105,24 @@ async def on_chat_start():
             ).send()
 
             if action_message and action_message.get("payload", {}).get("value") == "continue":
-                await send_message(content = f"Executing the Automation task... Please wait")
-
-                asyncio.run(browser_agent.browser_agent_task(plan_of_action))
+                animation_task = asyncio.create_task(
+                    AnimationStyles.spinner_animation(
+                        "Executing the Automation task... Please wait", 
+                        interval=0.2, 
+                        timeout=300  # Optional timeout
+                    )
+                )
                 
-                await send_message(content = f"Completed the task!!")
+                try:
+                    # Your actual task
+                    await browser_agent.browser_agent_task(plan_of_action)
+                finally:
+                    # Always cancel animation, even if task fails
+                    animation_task.cancel()
+                    await animation_task  # Ensure clean cancellation
+                
+                await cl.Message(content="Task completed successfully!").send()
+
                 response = requests.get("http://localhost:8000/retrieveFormData")
                 await send_message(content = f"Your Onboarding reference number : {response.json()}")
                 
@@ -217,6 +231,12 @@ async def on_message(message: cl.Message):
             error = f"Error processing your request: {str(e)}"
             msg.content = error
             await msg.update()
+
+
+
+##########Audio Accesibility####################
+
+
 @cl.on_audio_chunk
 async def on_audio_chunk(chunk: cl.InputAudioChunk):
     audio_chunks = cl.user_session.get("audio_chunks")
