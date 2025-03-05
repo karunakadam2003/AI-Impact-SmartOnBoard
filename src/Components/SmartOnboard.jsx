@@ -4,6 +4,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./Stepper.css"
 import "./Stepper.css"; // Custom CSS file
 
+import { MessageCircle } from "lucide-react"; // Import chatbot icon
+import FloatingChatButton from "./FloatingChatButton";
+
 
 function SmartOnboard() {
     return (
