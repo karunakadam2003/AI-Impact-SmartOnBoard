@@ -42,3 +42,4 @@ chainlit/.files/*
 /chainlit/venv
 /chainlit/chainlit_venv
 chainlit/.env
+chainlit/output.wav
